@@ -11,10 +11,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160205022846) do
+ActiveRecord::Schema.define(version: 20160205034852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "siteabbr"
+    t.string   "email"
+    t.string   "site"
+    t.string   "lpfi_id"
+    t.string   "cohort"
+    t.string   "firstname"
+    t.string   "middlename"
+    t.string   "lastname"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
+    t.string   "homephone"
+    t.string   "workphone"
+    t.string   "cellphone"
+    t.string   "gender"
+    t.string   "birthdate"
+    t.string   "ethnicity"
+    t.string   "otherethnic"
+    t.string   "schoolcity"
+    t.string   "schooltype"
+    t.string   "counselor"
+    t.string   "other_programs"
+    t.string   "official_gpa"
+    t.string   "graduationdate"
+    t.boolean  "us_citizen"
+    t.string   "ec1_name"
+    t.string   "ec1_relationship"
+    t.string   "ec1_homephone"
+    t.string   "ec1_cellphone"
+    t.boolean  "acceptedtocollege"
+    t.boolean  "attendingcollege"
+    t.string   "stemmajor"
+    t.string   "graduatedcollege"
+    t.string   "employment"
+    t.string   "job_title"
+    t.string   "grad_school"
+    t.string   "grad_school_major"
+    t.string   "grad_school_year_graduated"
+    t.string   "linkedin"
+    t.string   "networking_interest"
+    t.string   "current_city"
+    t.string   "current_state"
+    t.string   "current_country"
+    t.string   "career_interests"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

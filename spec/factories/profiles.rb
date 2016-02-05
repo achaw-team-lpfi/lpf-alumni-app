@@ -1,0 +1,52 @@
+FactoryGirl.define do
+  factory :profile do
+    siteabbr 1
+email "MyString"
+site "MyString"
+lpfi_id "MyString"
+cohort "MyString"
+firstname "MyString"
+middlename "MyString"
+lastname "MyString"
+address1 "MyString"
+address2 "MyString"
+city "MyString"
+state "MyString"
+zip "MyString"
+country "MyString"
+homephone "MyString"
+workphone "MyString"
+cellphone "MyString"
+gender "MyString"
+birthdate "MyString"
+ethnicity "MyString"
+otherethnic "MyString"
+schoolcity "MyString"
+schooltype "MyString"
+counselor "MyString"
+other_programs "MyString"
+official_gpa "MyString"
+graduationdate "MyString"
+us_citizen false
+ec1_name "MyString"
+ec1_relationship "MyString"
+ec1_homephone "MyString"
+ec1_cellphone "MyString"
+acceptedtocollege false
+attendingcollege false
+stemmajor "MyString"
+graduatedcollege "MyString"
+employment "MyString"
+job_title "MyString"
+grad_school "MyString"
+grad_school_major "MyString"
+grad_school_year_graduated "MyString"
+linkedin "MyString"
+networking_interest "MyString"
+current_city "MyString"
+current_state "MyString"
+current_country "MyString"
+career_interests "MyString"
+  end
+
+end
