@@ -1,8 +1,9 @@
 
-<%= form_for @profile do |f| %>
-
-  <div>
-    <%= f.label :siteabbr %>
+<%= form_for @profile, :html=>{:class => "form-horizontal"} do |f| %>
+<fieldset>
+<legend>Alumni Info</legend>
+  <div class = "form-group">
+    <%= f.label :siteabbr, :class => "control-label" %>
     <%= f.text_field :siteabbr %>
   </div>
   <div>
@@ -44,4 +45,5 @@
   <div>
     <%= f.submit %>
   </div>
+  </fieldset>
 <% end %>
