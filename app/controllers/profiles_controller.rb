@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find(params[:id])
-    if @profile.update(profile_params)
+    if @profile.update(params[:profile])
       redirect_to "/profiles/#{@profile.id}"
     else
       render :edit
@@ -37,14 +37,12 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    Profile.find_by(id: params[:id]).update(active: false)
-    redirect_to "/profiles"
+    # Profile.find_by(id: params[:id]).update(active: false)
+    # redirect_to "/profiles"
   end
 
   private
 
-  def supplier_params
-    params.require(:profiles).permit()
-  end
+
 
 end

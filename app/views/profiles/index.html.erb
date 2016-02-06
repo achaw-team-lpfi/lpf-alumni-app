@@ -1,1 +1,14 @@
-this is working
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @profiles.each do |profile| %>
+    <tr>
+    <td><a href=<%="/profiles/#{profile.id}"%>><%= profile.fullname %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
