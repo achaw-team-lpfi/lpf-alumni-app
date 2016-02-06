@@ -1,0 +1,47 @@
+
+<%= form_for @profile do |f| %>
+
+  <div>
+    <%= f.label :siteabbr %>
+    <%= f.text_field :siteabbr %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :site %>
+    <%= f.text_field :site %>
+  </div>
+  <div>
+    <%= f.label :lpfi_id %>
+    <%= f.text_field :lpfi_id %>
+  </div>
+  <div>
+    <%= f.label :cohort %>
+    <%= f.text_field :cohort %>
+  </div>
+  <div>
+    <%= f.label :firstname %>
+    <%= f.text_field :firstname %>
+  </div>
+  <div>
+    <%= f.label :middlename %>
+    <%= f.text_field :middlename %>
+  </div>
+  <div>
+    <%= f.label :lastname %>
+    <%= f.text_field :lastname %>
+  </div>
+  <div>
+    <%= f.label :address1 %>
+    <%= f.text_field :address1 %>
+  </div>
+  <div>
+    <%= f.label :address2 %>
+    <%= f.text_field :address2 %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
