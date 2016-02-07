@@ -37,8 +37,8 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    # Profile.find_by(id: params[:id]).update(active: false)
-    # redirect_to "/profiles"
+    Profile.find(params[:id]).update(active: false)
+    redirect_to "/profiles"
   end
 
   private
