@@ -3,7 +3,8 @@
   <a href=<%="/profiles/#{@profile.id}/edit"%> class="btn btn-default">Edit Profile</a>
   <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
   <ul class="dropdown-menu">
-    <li><a href=<%="/profiles/#{@profile.id}"%>>Delete Profile</a></li>
+    <li><%= link_to "Edit", edit_profile_path %></li>
+    <li><%= link_to "Delete", "/profiles/#{@profile.id}", {method: :delete}%></li>
     <li class="divider"></li>
     <li><a href="#">Separated link</a></li>
   </ul>

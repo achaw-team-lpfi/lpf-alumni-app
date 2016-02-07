@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   def index
-      @profiles = Profile.all
+      @profiles = Profile.where(active: true)
       # redirect_to '/profiles/#{current_user.id}'
   end
 
@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(params[:profile])
+    @profile = Profile.new(profile_params)
 
     if @profile.save
       redirect_to "/profiles/#{@profile.id}"
@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find(params[:id])
-    if @profile.update(params[:profile])
+    if @profile.update(profile_params)
       redirect_to "/profiles/#{@profile.id}"
     else
       render :edit
@@ -43,6 +43,9 @@ class ProfilesController < ApplicationController
 
   private
 
+  def profile_params
+    params.require(:profile).permit(:firstname, :middlename, :lastname)
+  end
 
 
 end
