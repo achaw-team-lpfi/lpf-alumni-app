@@ -1,8 +1,12 @@
 class ProfilesController < ApplicationController
 
   def index
+    if current_user && current_user.admin
+      @profiles = Profile.all
+    else
       @profiles = Profile.where(active: true)
       # redirect_to '/profiles/#{current_user.id}'
+    end
   end
 
   def new
@@ -10,13 +14,31 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(profile_params)
+    if current_user.admin
+      @profile = Profile.new(profile_params)
 
-    if @profile.save
-      redirect_to "/profiles/#{@profile.id}"
+      if @profile.save
+        redirect_to "/profiles/#{@profile.id}"
+      else
+        render :new
+      end
+
     else
-      render :new
+      @profile = Profile.create(user_id: current_user.id)
+
+      if @profile.update(alumni_params)
+        redirect_to "/profiles/#{@profile.id}"
+      else
+        render :new
+      end
+
     end
+
+    # if @profile.save
+    #   redirect_to "/profiles/#{@profile.id}"
+    # else
+    #   render :new
+    # end
   end
 
   def show
@@ -29,7 +51,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find(params[:id])
-    if @profile.update(profile_params)
+    if @profile.update(alumni_params)
       redirect_to "/profiles/#{@profile.id}"
     else
       render :edit
@@ -45,6 +67,10 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:firstname, :middlename, :lastname, :user_id)
+  end
+
+  def alumni_params
+    params.require(:profile).permit(:firstname, :middlename, :lastname)
   end
 
 
