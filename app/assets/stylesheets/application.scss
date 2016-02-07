@@ -15,8 +15,19 @@
 @import "bootstrap";
 @import "bootswatch/simplex/bootswatch";
 #formforalumni{
-  margin-left: 75px;
+  margin: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+}
+.bs-component{
+  margin:auto;
+  width:720px;
 }
 .container{
   padding: 50px;
+}
+
+.logo{
+  margin:10px;
 }
