@@ -1,59 +1,85 @@
 <div class="well bs-component">
 <%= form_for @profile, :html=>{:class => "form-horizontal", :id => "formforalumni"} do |f| %>
 <fieldset>
-<legend>Alumni Info</legend>
+<legend>LPFI Info</legend>
   <%if current_user.admin%>
   <div class = "form-group">
-    <%= f.label :user_id, :class => "control-label" %>
-    <%= f.text_field :user_id %>
-  </div>
-  <%else%>
-  <div>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.label :user_id, "User ID", :class => "control-label" %>
+    <%= f.text_field :user_id, :class => 'form-control' %>
   </div>
   <%end%>
   <div class = "form-group">
-    <%= f.label :siteabbr, :class => "control-label" %>
-    <%= f.text_field :siteabbr %>
+    <%= f.label :firstname, 'First Name', :class => "control-label" %>
+    <%= f.text_field :firstname, :class => 'form-control' %>
   </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+   <div class = "form-group">
+    <%= f.label :middlename, 'Middle Name', :class => "control-label" %>
+    <%= f.text_field :middlename, :class => 'form-control' %>
   </div>
-  <div>
-    <%= f.label :site %>
-    <%= f.text_field :site %>
+   <div class = "form-group">
+    <%= f.label :lastname, 'Last Name', :class => "control-label" %>
+    <%= f.text_field :lastname, :class => 'form-control' %>
   </div>
-  <div>
-    <%= f.label :lpfi_id %>
-    <%= f.text_field :lpfi_id %>
+
+  <div class = "form-group">
+    <%= f.label :site, "Site", :class => "control-label" %>
+    <%= f.text_field :site, :class => 'form-control' %>
   </div>
-  <div>
-    <%= f.label :cohort %>
-    <%= f.text_field :cohort %>
+  <div class = "form-group">
+    <%= f.label :siteabbr, "Site Abbr", :class => "control-label" %>
+    <%= f.text_field :siteabbr, :class => 'form-control'  %>
   </div>
-  <div>
-    <%= f.label :firstname %>
-    <%= f.text_field :firstname %>
+  <div class = "form-group">
+    <%= f.label :lpfi_id, "LPFI ID", :class => "control-label" %>
+    <%= f.text_field :lpfi_id, :class => 'form-control' %>
   </div>
-  <div>
-    <%= f.label :middlename %>
-    <%= f.text_field :middlename %>
+  <div class = "form-group">
+    <%= f.label :cohort, "Cohort", :class => "control-label" %>
+    <%= f.text_field :cohort, :class => 'form-control' %>
   </div>
-  <div>
-    <%= f.label :lastname %>
-    <%= f.text_field :lastname %>
+  <legend>Contact Info</legend>
+   <div class = "form-group">
+    <%= f.label :address1, 'Address 1', :class => "control-label" %>
+    <%= f.text_field :address1, :class => 'form-control' %>
   </div>
-  <div>
-    <%= f.label :address1 %>
-    <%= f.text_field :address1 %>
+   <div class = "form-group">
+    <%= f.label :address2, 'Address 2', :class => "control-label" %>
+    <%= f.text_field :address2, :class => 'form-control' %>
   </div>
-  <div>
-    <%= f.label :address2 %>
-    <%= f.text_field :address2 %>
+  <div class = "form-group">
+    <%= f.label :city, 'City', :class => "control-label" %>
+    <%= f.text_field :city, :class => 'form-control' %>
+    <%= f.label :state, 'State', :class => "control-label" %>
+    <%= f.select :state, options_for_select([['CA','CA'],['AZ','AZ'],['NY','NY']]), {}, {:class => 'form-control'}%>
   </div>
-  <div>
-    <%= f.submit %>
+  <div class = "form-group">
+    <%= f.label :zip, 'Zip', :class => "control-label" %>
+    <%= f.text_field :zip, :class => 'form-control' %>
+  </div>
+  <div class = "form-group">
+    <%= f.label :country, 'County', :class => "control-label" %>
+    <%= f.text_field :country, :class => 'form-control' %>
+  </div>
+  <div class = "form-group">
+    <%= f.label :homephone, 'Home Phone', :class => "control-label" %>
+    <%= f.text_field :homephone, :class => 'form-control' %>
+  </div>
+  <div class = "form-group">
+    <%= f.label :workphone, 'Work Phone', :class => "control-label" %>
+    <%= f.text_field :workphone, :class => 'form-control' %>
+  </div>
+  <div class = "form-group">
+    <%= f.label :cellphone, 'Cell Phone', :class => "control-label" %>
+    <%= f.text_field :cellphone, :class => 'form-control' %>
+  </div>
+  <div class = "form-group">
+    <%= f.label :email, 'Email', :class => "control-label" %>
+    <%= f.text_field :email, :class => 'form-control' %>
+  </div>
+
+  <div class = "form-group">
+    <button type="reset" class="btn btn-default">Cancel</button>
+    <%= f.submit%>
   </div>
   </fieldset>
 <% end %>
