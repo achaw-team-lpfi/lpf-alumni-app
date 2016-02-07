@@ -2,6 +2,16 @@
 <%= form_for @profile, :html=>{:class => "form-horizontal", :id => "formforalumni"} do |f| %>
 <fieldset>
 <legend>Alumni Info</legend>
+  <%if current_user.admin%>
+  <div class = "form-group">
+    <%= f.label :user_id, :class => "control-label" %>
+    <%= f.text_field :user_id %>
+  </div>
+  <%else%>
+  <div>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  <%end%>
   <div class = "form-group">
     <%= f.label :siteabbr, :class => "control-label" %>
     <%= f.text_field :siteabbr %>

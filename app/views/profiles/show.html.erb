@@ -1,12 +1,35 @@
+<div class="">
 <h1 class ="page-header">Profile for <%= @profile.fullname %></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%if current_user%>
+<%if current_user.id == @profile.user.id %>
 <div class="btn-group">
   <a href=<%="/profiles/#{@profile.id}/edit"%> class="btn btn-default">Edit Profile</a>
+
+  <%if current_user.admin%>
   <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
   <ul class="dropdown-menu">
-    <li><%= link_to "Edit", edit_profile_path %></li>
+   <!--  <li><%= link_to "Edit", edit_profile_path %></li> -->
     <li><%= link_to "Delete", "/profiles/#{@profile.id}", {method: :delete}%></li>
-    <li class="divider"></li>
-    <li><a href="#">Separated link</a></li>
+<!--     <li class="divider"></li>
+    <li><a href="#">Separated link</a></li> -->
   </ul>
+  <%end%>
+</div>
+<%end%>
+<%end%>
+
 </div>
 
