@@ -66,11 +66,11 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:firstname, :middlename, :lastname, :user_id)
+    params.require(:profile).permit(:firstname, :middlename, :lastname, :site, :siteabbr, :lpfi_id, :cohort, :address1, :address2, :city, :state, :zip, :country, :homephone, :workphone, :cellphone, :email, :user_id)
   end
 
   def alumni_params
-    params.require(:profile).permit(:firstname, :middlename, :lastname)
+    params.require(:profile).permit(:firstname, :middlename, :lastname, :site, :siteabbr, :lpfi_id, :cohort, :address1, :address2, :city, :state, :zip, :country, :homephone, :workphone, :cellphone, :email,)
   end
 
 
