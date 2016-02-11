@@ -1,0 +1,28 @@
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Search page</h1>
+    </div>    
+    <div class="col-xs-12">
+      <% if current_user.admin %>
+      Hello admin
+      <% else %>
+      <h2>Hello regular user</h2>
+      <div class="well bs-component">
+     <%= form_tag '/search', method: :post do %>
+        <p>
+          <%= label_tag :name, "Name" %>
+          <%= text_field_tag :name, params[:name] %>
+          <%= submit_tag "search", :name => nil %>
+        </p>
+
+     <% end %>
+      <% @searches.each do |search| %>
+        <p><%= search.firstname %></p>
+        <p><%= search.lastname %></p>
+      <% end %>
+
+      </div>
+      <% end %> <!-- end of if else for user -->
+    </div>  
+  </div>

@@ -63,6 +63,21 @@ class ProfilesController < ApplicationController
     redirect_to "/profiles"
   end
 
+  def search
+    if current_user
+      @profiles = Profile.all
+    else
+      redirect_to "/profiles"
+    end  
+  end
+
+  def search_alumni
+      if params[:name]
+        @searches = Profile.where("firstname LIKE ?", "%#{params[:name]}%")
+        render :search
+      end
+  end
+
   private
 
   def profile_params
