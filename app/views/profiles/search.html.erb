@@ -36,29 +36,33 @@
               <th>Networking Interest</th>
             </tr>
         </thead>
-        <% @searches.each do |search| %>
-          <tr>
-            <td><%= search.firstname %></td>
-            <td><%= search.lastname %></td>
-            <td><%= search.email %></td>
-            <td><%= search.site %></td>
-            <td><%= search.cohort %></td>
-            <td><%= search.city %></td>
-            <td><%= search.state %></td>
-            <!-- <td>< search.schoolname ></td> -->
-            <td><%= search.attendingcollege %></td>
-            <td><%= search.stemmajor %></td>
-            <td><%= search.graduatedcollege %></td>
-            <td><%= search.employment %></td>
-            <td><%= search.job_title %></td>
-            <td><%= search.grad_school %></td>
-            <td><%= search.grad_school_major %></td>
-            <td><%= search.current_city%></td>
-            <td><%= search.current_state%></td>
-            <td><%= search.linkedin%></td>
-            <td><%= search.career_interests%></td>
-            <td><%= search.networking_interest%></td>
-          </tr>
+          <% if @searches.count > 0 %>
+            <% @searches.each do |search| %>
+              <tr>
+                <td><%= search.firstname %></td>
+                <td><%= search.lastname %></td>
+                <td><%= search.email %></td>
+                <td><%= search.site %></td>
+                <td><%= search.cohort %></td>
+                <td><%= search.city %></td>
+                <td><%= search.state %></td>
+                <!-- <td>< search.schoolname ></td> -->
+                <td><%= search.attendingcollege %></td>
+                <td><%= search.stemmajor %></td>
+                <td><%= search.graduatedcollege %></td>
+                <td><%= search.employment %></td>
+                <td><%= search.job_title %></td>
+                <td><%= search.grad_school %></td>
+                <td><%= search.grad_school_major %></td>
+                <td><%= search.current_city%></td>
+                <td><%= search.current_state%></td>
+                <td><%= search.linkedin%></td>
+                <td><%= search.career_interests%></td>
+                <td><%= search.networking_interest%></td>
+              </tr>
+            <% end %>  
+          <% else%>
+              <tr><td colspan="20">Your search for <strong><%= params[:search] %></strong> has no matching result.</td></tr>
         <% end %>
       </table>
       <% end %>
