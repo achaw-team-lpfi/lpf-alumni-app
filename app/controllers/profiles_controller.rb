@@ -72,8 +72,9 @@ class ProfilesController < ApplicationController
   end
 
   def search_alumni
-      if params[:name]
-        @searches = Profile.where("firstname LIKE ?", "%#{params[:name]}%")
+      if params[:search]
+        search_term = params[:search].capitalize
+        @searches = Profile.where("firstname LIKE ? OR lastname LIKE ?", "%#{search_term}%" , "%#{search_term}%")
         render :search
       end
   end
