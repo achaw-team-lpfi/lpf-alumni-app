@@ -6,10 +6,6 @@ class Profile < ActiveRecord::Base
   end
 
   # def search(name)
-  #   find(:all,:conditions => ['firstname LIKE ?', "%#{name}%"])
-  #   if name
-  #   else
-  #     find(:all)
-  #   end
+
   #end
 end

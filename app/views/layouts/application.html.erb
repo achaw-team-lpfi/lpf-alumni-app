@@ -59,12 +59,19 @@
         </li>
         <li>
         <a>
-               <%= form_tag '/search', method: :post do %>
-          <%= label_tag :search, "Search for:" %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "search", :name => nil %>
-
-     <% end %>
+        <% if current_user %>
+          <%= form_tag '/search-alumni', method: :post do %>
+            <%= label_tag :search, "Search for:" %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "search", :name => nil %>
+          <% end %>
+        <% elsif current_user.admin %>  
+          <%= form_tag '/search-staff', method: :post do %>
+            <%= label_tag :search, "Search for:" %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "search", :name => nil %>
+          <% end %>        
+        <% end %>  
         </a>
         </li>
       </ul>

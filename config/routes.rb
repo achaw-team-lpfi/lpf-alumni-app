@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'profiles#index'
   get '/search', to: 'profiles#search'
-  post '/search', to: 'profiles#search_alumni'
+  post '/search-alumni', to: 'profiles#search_alumni'
+  post '/search-staff', to: 'profiles#search_staff'  
   resources :profiles
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
