@@ -1,14 +1,31 @@
 <div class="">
-<h1 class ="page-header">Profile for <%= @profile.fullname %></h1>
+<h1 class ="page-header">Profile for: <%= @profile.name_format %></h1>
 
 <ul class="nav nav-tabs">
   <li class="active"><a href="#personal-info" data-toggle="tab" aria-expanded="true">Personal Info</a></li>
-  <li class=""><a href="#contact-info" data-toggle="tab" aria-expanded="false">Contact Info</a></li>
-  <li class=""><a href="#LPFI-info" data-toggle="tab" aria-expanded="false">LPFI Info</a></li>
+  <li class=""><a href="#career-info" data-toggle="tab" aria-expanded="false">Career Info</a></li>
+<%if current_user%>
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+      Profile Options <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <%if current_user.admin%>
+        <li><%= link_to "Edit Profile", edit_profile_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Delete", "/profiles/#{@profile.id}", {method: :delete}%></li>
+      <%elsif current_user.id == @profile.user.id%>
+        <a href=<%="/profiles/#{@profile.id}/edit"%> class="btn btn-primary">Edit Profile</a>
+        <li><%= link_to "Delete", "/profiles/#{@profile.id}", {method: :delete}%></li>
+      <%end%>
+    </ul>
+  </li>
+<%end%>
 
 </ul>
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane fade active in" id="personal-info">
+
   <ul>
 
     <li>First Name: <%= @profile.firstname %></li>
@@ -31,11 +48,68 @@
     <li>Cell Phone: <%= @profile.cellphone %></li>
     <li>Email: <%= @profile.email %></li>
   </ul>
+
+  <div class = "panel panel-default" style = "margin-top:20px;">
+  <table class = "alumni-table" style="margin:15px;">
+  <tr><th>First Name: </th><td><%= @profile.firstname %></td></tr>
+  <tr><th>Middle Name: </th><td><%= @profile.middlename %></td></tr>
+  <tr><th>Last Name: </th><td><%= @profile.lastname %></td></tr>
+  <tr><th>Birthdate: </th><td><%= @profile.birthdate %></td></tr>
+  <tr><th>Gender: </th><td><%= @profile.gender %></td></tr>
+  <tr><th>Ethnicity: </th><td><%= @profile.ethnicity %></td></tr>
+  <tr><th>Other Ethnicity: </th><td><%= @profile.otherethnic %></td></tr>
+  <tr><th>LPFI ID: </th><td><%= @profile.lpfi_id %></td></tr>
+  <tr><th>Cohort: </th><td><%= @profile.cohort %></td></tr>
+  <tr><th>Site: </th><td><%= @profile.site %></td></tr>
+  <tr><th>Address 1: </th><td><%= @profile.address1 %></td></tr>
+  <tr><th>Address 2: </th><td><%= @profile.address2 %></td></tr>
+  <tr><th>City: </th><td><%= @profile.city %></td></tr>
+  <tr><th>State: </th><td><%= @profile.state %></td></tr>
+  <tr><th>Zip: </th><td><%= @profile.zip %></td></tr>
+  <tr><th>County: </th><td><%= @profile.country %></td></tr>
+  <tr><th>Email: </th><td><%= @profile.email %></td></tr>
+  <tr><th>Homephone: </th><td><%= @profile.homephone %></td></tr>
+  <tr><th>Workphone: </th><td><%= @profile.workphone %></td></tr>
+  <tr><th>Cellphone: </th><td><%= @profile.cellphone %></td></tr>
+  </table>
   </div>
-  <div class="tab-pane fade" id="LPFI-info">
-    <p><%= @profile.site %></p>
+  </div>
+
+<div class="tab-pane fade" id="career-info">
+<div class = "panel panel-default" style = "margin-top:20px;">
+  <table class = "alumni-table" style="margin:15px;">
+  <tr><th>School Name: </th><td><%= @profile.change_me %></td></tr>
+  <tr><th>School City: </th><td><%= @profile.schoolcity %></td></tr>
+  <tr><th>School Type: </th><td><%= @profile.schooltype %></td></tr>
+  <tr><th>Counselor: </th><td><%= @profile.counselor %></td></tr>
+  <tr><th>Other Programs: </th><td><%= @profile.other_programs %></td></tr>
+  <tr><th>Official GPA: </th><td><%= @profile.official_gpa %></td></tr>
+  <tr><th>Graduation Date: </th><td><%= @profile.graduationdate %></td></tr>
+  <tr><th>US Citizen?: </th><td><%= @profile.us_citizen %></td></tr>
+  <tr><th>EC1 Relationship: </th><td><%= @profile.ec1_relationship %></td></tr>
+  <tr><th>EC1 Homephone: </th><td><%= @profile.ec1_homephone %></td></tr>
+  <tr><th>EC1 Cellphone: </th><td><%= @profile.ec1_cellphone %></td></tr>
+  <tr><th>Accepted to College?: </th><td><%= @profile.acceptedtocollege %></td></tr>
+  <tr><th>Attending College?: </th><td><%= @profile.attendingcollege %></td></tr>
+  <tr><th>STEM Major?: </th><td><%= @profile.stemmajor %></td></tr>
+  <tr><th>Graduated College?: </th><td><%= @profile.graduatedcollege %></td></tr>
+  <tr><th>Employment: </th><td><%= @profile.employment %></td></tr>
+  <tr><th>Searching For: </th><td><%= @profile.change_me %></td></tr>
+  <tr><th>Job Title: </th><td><%= @profile.job_title %></td></tr>
+  <tr><th>Grad School?: </th><td><%= @profile.grad_school %></td></tr>
+  <tr><th>Grad School Major: </th><td><%= @profile.grad_school_major %></td></tr>
+  <tr><th>Grad School Graduation Year: </th><td><%= @profile.grad_school_year_graduated %></td></tr>
+  <tr><th>LinkedIn Profile: </th><td><%= @profile.linkedin %></td></tr>
+  <tr><th>Interested in Networking Opportunities?: </th><td><%= @profile.networking_interest %></td></tr>
+  <tr><th>Current City, State: </th><td><%= "#{@profile.current_city}, #{@profile.current_state}" %></td></tr>
+  <tr><th>Career Areas of Interest: </th><td><%= @profile.career_interests %></td></tr>
+  <tr><th>Professional Development Areas of Interest: </th><td><%= @profile.change_me %></td></tr>
+  </table>
+
+  </div>
   </div>
 </div>
+
 
 
 
@@ -53,6 +127,7 @@
 
       <%end%>
 <%end%>
+
 
 </div>
 

@@ -50,7 +50,7 @@
     <%= f.label :city, 'City', :class => "control-label" %>
     <%= f.text_field :city, :class => 'form-control' %>
     <%= f.label :state, 'State', :class => "control-label" %>
-    <%= f.select :state, options_for_select([['CA','CA'],['AZ','AZ'],['NY','NY']]), {}, {:class => 'form-control'}%>
+    <%= f.select :state, options_for_select(@profile.state_abbs), {}, {:class => 'form-control'}%>
   </div>
   <div class = "form-group">
     <%= f.label :zip, 'Zip', :class => "control-label" %>
