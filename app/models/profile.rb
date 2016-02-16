@@ -67,9 +67,9 @@ class Profile < ActiveRecord::Base
     ['WY','WY']]
   end
 
-  def id_check
-    if id
-      return id
+  def user_id_check
+    if user
+      return user.id
     else
       return (-1)
     end
