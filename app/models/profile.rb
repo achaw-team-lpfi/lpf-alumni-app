@@ -66,4 +66,12 @@ class Profile < ActiveRecord::Base
     ['WV','WV'],
     ['WY','WY']]
   end
+
+  def id_check
+    if id
+      return id
+    else
+      return (-1)
+    end
+  end
 end
