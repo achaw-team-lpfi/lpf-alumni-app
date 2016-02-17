@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
+  attr_encrypted :address1, :key => 'a secret key'
 
   def name_format
     return "#{lastname}, #{firstname} #{middlename if middlename}"
