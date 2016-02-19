@@ -2,9 +2,23 @@ class ProfilesController < ApplicationController
 
   def index
     if current_user && current_user.admin
+      profile_headers = Profile.column_names
+      @profile_header_list = []
+      
+      profile_headers.each do |profile_header|
+        @profile_header_list << profile_header
+      end
+      
       @profiles = Profile.all
     else
+      profile_headers = Profile.column_names
+      @profile_header_list = []
+      
+      profile_headers.each do |profile_header|
+        @profile_header_list << profile_header
+      end      
       @profiles = Profile.where(active: true)
+
       # redirect_to '/profiles/#{current_user.id}'
     end
   end
@@ -72,6 +86,13 @@ class ProfilesController < ApplicationController
   end
 
   def search_alumni
+         profile_headers = Profile.column_names
+      @profile_header_list = []
+      
+      profile_headers.each do |profile_header|
+        @profile_header_list << profile_header
+      end    
+        
       if params[:search]
         search_term = params[:search].capitalize
         @searches = Profile.where("firstname LIKE ? OR 

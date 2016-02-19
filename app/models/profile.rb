@@ -67,4 +67,5 @@ class Profile < ActiveRecord::Base
     ['WY','WY']]
   end
 
+
 end
