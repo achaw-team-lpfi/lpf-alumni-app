@@ -7,128 +7,142 @@
 
 <!-- ##### BEGIN ADMIN SEARCH VIEW ##### -->  
 
-      <% if current_user.admin %>
-      <h2>Hello admin</h2>
-            <% if params[:search] %>
-      <table class="table table-hover">
-        <thead>          
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-              <th>Site</th>
-              <th>Cohort</th>
-              <th>City</th>
-              <th>State</th>
-              <th>School Name</th>
-              <th>Attending College</th>
-              <th>Stem Major</th>
-              <th>Graduated College</th>
-              <th>Employment</th>
-              <th>Job Title</th>
-              <th>Grad School</th>
-              <th>Grad School Major</th>
-              <th>Current City</th>
-              <th>Current State</th>
-              <th>Linkedin</th>
-              <th>Career Interest</th>
-              <th>Networking Interest</th>
-            </tr>
-        </thead>
-          <% if @searches.count > 0 %>
-            <% @searches.each do |search| %>
-              <tr>
-                <td><%= search.firstname %></td>
-                <td><%= search.lastname %></td>
-                <td><%= search.email %></td>
-                <td><%= search.site %></td>
-                <td><%= search.cohort %></td>
-                <td><%= search.city %></td>
-                <td><%= search.state %></td>
-                <!-- <td>< search.schoolname ></td> -->
-                <td><%= search.attendingcollege %></td>
-                <td><%= search.stemmajor %></td>
-                <td><%= search.graduatedcollege %></td>
-                <td><%= search.employment %></td>
-                <td><%= search.job_title %></td>
-                <td><%= search.grad_school %></td>
-                <td><%= search.grad_school_major %></td>
-                <td><%= search.current_city%></td>
-                <td><%= search.current_state%></td>
-                <td><%= search.linkedin%></td>
-                <td><%= search.career_interests%></td>
-                <td><%= search.networking_interest%></td>
-              </tr>
-            <% end %>  
-          <% else%>
-              <tr><td colspan="20">Your search for <strong><%= params[:search] %></strong> has no matching result.</td></tr>
-        <% end %>
-      </table>
+  <% if current_user.admin %>
+  <h2>Hello admin</h2>
+  <% if params[:search] %>
+  <table class="table table-hover">
+    <thead>          
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Site</th>
+        <th>Cohort</th>
+        <th>City</th>
+        <th>State</th>
+        <th>School Name</th>
+        <th>Attending College</th>
+        <th>Stem Major</th>
+        <th>Graduated College</th>
+        <th>Employment</th>
+        <th>Job Title</th>
+        <th>Grad School</th>
+        <th>Grad School Major</th>
+        <th>Current City</th>
+        <th>Current State</th>
+        <th>Linkedin</th>
+        <th>Career Interest</th>
+        <th>Networking Interest</th>
+      </tr>
+    </thead>
+    <% begin %>
+    <% @searches.each do |search| %>
+    <tr>
+      <td><%= search.firstname %></td>
+      <td><%= search.lastname %></td>
+      <td><%= search.email %></td>
+      <td><%= search.site %></td>
+      <td><%= search.cohort %></td>
+      <td><%= search.city %></td>
+      <td><%= search.state %></td>
+      <!-- <td>< search.schoolname ></td> -->
+      <td><%= search.attendingcollege %></td>
+      <td><%= search.stemmajor %></td>
+      <td><%= search.graduatedcollege %></td>
+      <td><%= search.employment %></td>
+      <td><%= search.job_title %></td>
+      <td><%= search.grad_school %></td>
+      <td><%= search.grad_school_major %></td>
+      <td><%= search.current_city%></td>
+      <td><%= search.current_state%></td>
+      <td><%= search.linkedin%></td>
+      <td><%= search.career_interests%></td>
+      <td><%= search.networking_interest%></td>
+    </tr>
+    <% end %>
+
+    <% rescue %>
+    <tr><td colspan="20">Your search for <strong><%= params[:profile_header] + " " + params[:search] %></strong> has no matching result.</td></tr>
+
+
+    <% end %>
+  </table>
+  <% end %>
+  <% else %>
+
+  <!-- ##### BEGIN REGULAR SEARCH VIEW ##### -->
+
+  <h2>Hello regular user</h2>
+  <div class="">
+
+    <% if params[:search] %>
+    <table class="table table-hover">
+      <thead>          
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Site</th>
+          <th>Cohort</th>
+          <th>City</th>
+          <th>State</th>
+          <th>School Name</th>
+          <th>Attending College</th>
+          <th>Stem Major</th>
+          <th>Graduated College</th>
+          <th>Employment</th>
+          <th>Job Title</th>
+          <th>Grad School</th>
+          <th>Grad School Major</th>
+          <th>Current City</th>
+          <th>Current State</th>
+          <th>Linkedin</th>
+          <th>Career Interest</th>
+          <th>Networking Interest</th>
+        </tr>
+      </thead>
+
+      <% begin %>
+      <% if @searches.count = 0 %>
+        
+        <tr><td colspan="20">Your search for <strong><%= params[:profile_header] + " " + params[:search] %></strong> has no matching result.</td></tr>
+        <% else %>
+      <% @searches.each do |search| %>
+          <tr>
+            <td><%= search.firstname %></td>
+            <td><%= search.lastname %></td>
+            <td><%= search.email %></td>
+            <td><%= search.site %></td>
+            <td><%= search.cohort %></td>
+            <td><%= search.city %></td>
+            <td><%= search.state %></td>
+            <!-- <td>< search.schoolname ></td> -->
+            <td><%= search.attendingcollege %></td>
+            <td><%= search.stemmajor %></td>
+            <td><%= search.graduatedcollege %></td>
+            <td><%= search.employment %></td>
+            <td><%= search.job_title %></td>
+            <td><%= search.grad_school %></td>
+            <td><%= search.grad_school_major %></td>
+            <td><%= search.current_city%></td>
+            <td><%= search.current_state%></td>
+            <td><%= search.linkedin%></td>
+            <td><%= search.career_interests%></td>
+            <td><%= search.networking_interest%></td>
+          </tr>
+        <% end %>  
       <% end %>
-      <% else %>
 
-<!-- ##### BEGIN REGULAR SEARCH VIEW ##### -->
+      <% rescue %>
+      <tr><td colspan="20">Your search for <strong><%= params[:profile_header] + " " + params[:search] %></strong> has no matching result.</td></tr>
 
-      <h2>Hello regular user</h2>
-      <div class="">
 
-      <% if params[:search] %>
-      <table class="table table-hover">
-        <thead>          
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-              <th>Site</th>
-              <th>Cohort</th>
-              <th>City</th>
-              <th>State</th>
-              <th>School Name</th>
-              <th>Attending College</th>
-              <th>Stem Major</th>
-              <th>Graduated College</th>
-              <th>Employment</th>
-              <th>Job Title</th>
-              <th>Grad School</th>
-              <th>Grad School Major</th>
-              <th>Current City</th>
-              <th>Current State</th>
-              <th>Linkedin</th>
-              <th>Career Interest</th>
-              <th>Networking Interest</th>
-            </tr>
-        </thead>
-          <% if @searches.count > 0 %>
-            <% @searches.each do |search| %>
-              <tr>
-                <td><%= search.firstname %></td>
-                <td><%= search.lastname %></td>
-                <td><%= search.email %></td>
-                <td><%= search.site %></td>
-                <td><%= search.cohort %></td>
-                <td><%= search.city %></td>
-                <td><%= search.state %></td>
-                <!-- <td>< search.schoolname ></td> -->
-                <td><%= search.attendingcollege %></td>
-                <td><%= search.stemmajor %></td>
-                <td><%= search.graduatedcollege %></td>
-                <td><%= search.employment %></td>
-                <td><%= search.job_title %></td>
-                <td><%= search.grad_school %></td>
-                <td><%= search.grad_school_major %></td>
-                <td><%= search.current_city%></td>
-                <td><%= search.current_state%></td>
-                <td><%= search.linkedin%></td>
-                <td><%= search.career_interests%></td>
-                <td><%= search.networking_interest%></td>
-              </tr>
-            <% end %>  
-          <% else%>
-              <tr><td colspan="20">Your search for <strong><%= params[:search] %></strong> has no matching result.</td></tr>
-        <% end %>
-      </table>
       <% end %>
-      </div>
-      <% end %> <!-- end of if else for user -->
-    </div>  
+
+
+    </table>
+    <% end %>
+  </div>
+  <% end %> <!-- end of if else for user -->
+  </div>  
   </div>

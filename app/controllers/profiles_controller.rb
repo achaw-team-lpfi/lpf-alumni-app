@@ -95,38 +95,40 @@ class ProfilesController < ApplicationController
         
       if params[:search]
         search_term = params[:search].capitalize
-        @searches = Profile.where("firstname LIKE ? OR 
-          lastname LIKE ? OR 
-          email LIKE ? OR
-          site LIKE ? OR
-          city LIKE ? OR
-          state LIKE ? OR
-          stemmajor LIKE ? OR
-          graduatedcollege LIKE ? OR
-          employment LIKE ? OR
-          job_title LIKE ? OR
-          grad_school LIKE ? OR
-          grad_school_major LIKE ? OR
-          linkedin LIKE ? OR
-          current_city LIKE ? OR
-          current_state LIKE ? OR
-          career_interests LIKE ?" , 
-          "%#{search_term}%" ,
-          "%#{search_term}%",
-          "%#{search_term}%",
-          "%#{search_term}%",
-          "%#{search_term}%",
-          "%#{search_term}%",
-          "%#{search_term}%",
-          "%#{search_term}%",
-          "%#{search_term}%",
-          "%#{search_term}%",
-          "%#{search_term}%",
-          "%#{search_term}%",
-          "%#{search_term}%",
-          "%#{search_term}%",
-          "%#{search_term}%",
-          "%#{search_term}%")
+        search_header = params[:profile_header]
+        @searches = Profile.where("#{search_header} LIKE ? ", "%#{search_term}" )
+        # @searches = Profile.where("firstname LIKE ? OR 
+        #   lastname LIKE ? OR 
+        #   email LIKE ? OR
+        #   site LIKE ? OR
+        #   city LIKE ? OR
+        #   state LIKE ? OR
+        #   stemmajor LIKE ? OR
+        #   graduatedcollege LIKE ? OR
+        #   employment LIKE ? OR
+        #   job_title LIKE ? OR
+        #   grad_school LIKE ? OR
+        #   grad_school_major LIKE ? OR
+        #   linkedin LIKE ? OR
+        #   current_city LIKE ? OR
+        #   current_state LIKE ? OR
+        #   career_interests LIKE ?" , 
+        #   "%#{search_term}%" ,
+        #   "%#{search_term}%",
+        #   "%#{search_term}%",
+        #   "%#{search_term}%",
+        #   "%#{search_term}%",
+        #   "%#{search_term}%",
+        #   "%#{search_term}%",
+        #   "%#{search_term}%",
+        #   "%#{search_term}%",
+        #   "%#{search_term}%",
+        #   "%#{search_term}%",
+        #   "%#{search_term}%",
+        #   "%#{search_term}%",
+        #   "%#{search_term}%",
+        #   "%#{search_term}%",
+        #   "%#{search_term}%")
 
           # "%#{search_term}%",
           # attendingcollege LIKE ? OR
