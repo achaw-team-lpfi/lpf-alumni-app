@@ -4,3 +4,13 @@
 .alumni-table tr{
   margin: 10px;
 }
+
+#outPopUp {
+  width: 800px;
+  height: 1200px;
+  overflow-y: auto;
+
+  top: 50%;
+  left: 50%;
+  margin: auto;
+}
