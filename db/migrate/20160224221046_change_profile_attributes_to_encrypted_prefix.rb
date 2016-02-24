@@ -1,0 +1,40 @@
+class ChangeProfileAttributesToEncryptedPrefix < ActiveRecord::Migration
+  def change
+    rename_column :profiles, :email, :encrypted_email
+    rename_column :profiles, :site, :encrypted_site
+    rename_column :profiles, :lpfi_id, :encrypted_lpfi_id
+    rename_column :profiles, :cohort, :encrypted_cohort
+    rename_column :profiles, :firstname, :encrypted_firstname
+    rename_column :profiles, :middlename, :encrypted_middlename
+    rename_column :profiles, :lastname, :encrypted_lastname
+    rename_column :profiles, :address2, :encrypted_address2
+    rename_column :profiles, :city, :encrypted_city
+    rename_column :profiles, :state, :encrypted_state
+    rename_column :profiles, :zip, :encrypted_zip
+    rename_column :profiles, :homephone, :encrypted_homephone
+    rename_column :profiles, :workphone, :encrypted_workphone
+    rename_column :profiles, :cellphone, :encrypted_cellphone
+    rename_column :profiles, :gender, :encrypted_gender
+    rename_column :profiles, :birthdate, :encrypted_birthdate
+    rename_column :profiles, :ethnicity, :encrypted_ethnicity
+    rename_column :profiles, :otherethnic, :encrypted_otherethnic
+    rename_column :profiles, :schoolcity, :encrypted_schoolcity
+    rename_column :profiles, :schooltype, :encrypted_schooltype
+    rename_column :profiles, :counselor, :encrypted_counselor
+    rename_column :profiles, :other_programs, :encrypted_other_programs
+    rename_column :profiles, :official_gpa, :encrypted_official_gpa
+    rename_column :profiles, :graduationdate, :encrypted_graduationdate
+    rename_column :profiles, :ec1_name, :encrypted_ec1_name
+    rename_column :profiles, :ec1_relationship, :encrypted_ec1_relationship
+    rename_column :profiles, :ec1_homephone, :encrypted_ec1_homephone
+    rename_column :profiles, :ec1_cellphone, :encrypted_ec1_cellphone
+    rename_column :profiles, :stemmajor, :encrypted_stemmajor
+    rename_column :profiles, :graduatedcollege, :encrypted_graduatedcollege
+    rename_column :profiles, :job_title, :encrypted_job_title
+    rename_column :profiles, :grad_school, :encrypted_grad_school
+    rename_column :profiles, :grad_school_major, :encrypted_grad_school_major
+    rename_column :profiles, :linkedin, :encrypted_linkedin
+    rename_column :profiles, :current_city, :encrypted_current_city
+    rename_column :profiles, :current_state, :encrypted_current_state
+  end
+end
