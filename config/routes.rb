@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   post '/search-alumni', to: 'profiles#search_alumni'
   post '/search-staff', to: 'profiles#search_staff'  
   resources :profiles
+
+    namespace :api do
+    namespace :v1 do      
+      resources :profiles
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
+  attr_encrypted :address1, :address2, :email, :site, :lpfi_id, :cohort, :firstname, :middlename, :lastname, :city, :state, :zip, :homephone, :workphone, :cellphone, :gender, :birthdate, :ethnicity, :otherethnic, :schoolcity, :schooltype, :counselor, :other_programs, :official_gpa, :graduationdate, :ec1_name, :ec1_relationship, :ec1_homephone, :ec1_cellphone, :stemmajor, :graduatedcollege, :job_title, :grad_school, :grad_school_major, :linkedin, :current_city, :current_state, :schoolname, :county, :employer, :grad_school_year_of_graduation, :interested_in_networking_opportunities, :career_areas_of_interest, :professional_development_areas_of_interest, :key => 'a secret key'
 
   def name_format
     return "#{lastname}, #{firstname} #{middlename if middlename}"
@@ -67,5 +68,13 @@ class Profile < ActiveRecord::Base
     ['WY','WY']]
   end
 
+
+  def user_id_check
+    if user
+      return user.id
+    else
+      return (-1)
+    end
+  end
 
 end
