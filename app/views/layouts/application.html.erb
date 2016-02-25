@@ -61,25 +61,30 @@
         <li>
         <a>
 
-        <% if current_user %>
-        
+          <% if current_user %>
+
           <%= form_tag '/search-alumni', method: :post %>
-            <%= label_tag :search, "Search for:" %>
-            <%= text_field_tag :search, params[:search] %>
+          <%= label_tag :search, "Search for:" %>
+          <%= text_field_tag :search, params[:search] %>
           
           <%= select_tag 'profile_header', options_for_select(@profile_header_list, :selected) %>
           
-        
-            <%= submit_tag "search", :name => nil %>
 
-        <% end %>
+          <%= submit_tag "search", :name => nil %>
 
-        <% if current_user.admin %>  
-          <%= form_tag '/search-staff', method: :post %>
-            <%= label_tag :search, "Search for:" %>
-            <%= text_field_tag :search, params[:search] %>
-            <%= submit_tag "search", :name => nil %>
-        <% end %>
+
+          <% end %>
+
+          <% if !current_user %>  
+          
+          <% elsif current_user.admin %>  
+                    <%= form_tag '/search-staff', method: :post %>
+          <%= label_tag :search, "Search for:" %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "search", :name => nil %>
+          <% end %>
+
+
                  
 
         </a>
