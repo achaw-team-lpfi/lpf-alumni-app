@@ -7,10 +7,13 @@
 
       // pull data from profile.json 
 
-      $http.get("/api/v1/profiles.json")
+    $http.get("/api/v1/profiles.json")
       .success(function(data, status, headers, config){
         $scope.profiles = data;
-      });
+      })
+      .error(function(data,status,headers,config){
+        console.log(status);
+    });
     
     $scope.searchTerm = ''; // ng-model for search term
 
