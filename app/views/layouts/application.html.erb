@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="containter">
+<div class="containter" ng-app="app" ng-controller="profilesCtrl">
 <a href="/"><img class="logo" src="http://www.lpfi.org/wp-content/uploads/2015/03/LPFI-logo.png"></a>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -65,10 +65,7 @@
 
           <%= form_tag '/search-alumni', method: :post %>
           <%= label_tag :search, "Search for:" %>
-          <%= text_field_tag :search, params[:search] %>
-          
-          <%= select_tag 'profile_header', options_for_select(@profile_header_list, :selected) %>
-          
+          <%= text_field_tag :search, params[:search] %>          
 
           <%= submit_tag "search", :name => nil %>
 
@@ -109,3 +106,9 @@
 
 </body>
 </html>
+
+    <script type="text/javascript">
+    // created a global var to retrieve search term from nav search bar via params[:search] 
+    window.searchTerm = '<%= @search_term %>';
+    
+    </script>

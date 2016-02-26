@@ -86,17 +86,17 @@ class ProfilesController < ApplicationController
   end
 
   def search_alumni
-         profile_headers = Profile.column_names
-      @profile_header_list = []
+      #    profile_headers = Profile.column_names
+      # @profile_header_list = []
       
-      profile_headers.each do |profile_header|
-        @profile_header_list << profile_header
-      end    
+      # profile_headers.each do |profile_header|
+      #   @profile_header_list << profile_header
+      # end    
         
       if params[:search]
-        search_term = params[:search].capitalize
+        @search_term = params[:search].capitalize 
         search_header = params[:profile_header]
-        @searches = Profile.where("#{search_header} LIKE ? ", "%#{search_term}" )
+        #searches = Profile.where("#{search_header} LIKE ? ", "%#{search_term}" )
         # @searches = Profile.where("firstname LIKE ? OR 
         #   lastname LIKE ? OR 
         #   email LIKE ? OR
