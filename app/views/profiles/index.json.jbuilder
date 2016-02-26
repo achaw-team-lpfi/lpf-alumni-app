@@ -1,5 +1,47 @@
 json.array! @profiles do |profile|
   json.id profile.id
+  json.lpfi_id profile.lpfi_id
   json.firstname profile.firstname
+  json.middlename profile.middlename
+  json.lastname profile.lastname
+  json.birthdate profile.birthdate
+  json.gender profile.gender
+  json.ethnicity profile.ethnicity
+  json.otherethnic profile.otherethnic
+  json.email profile.email
   json.address1 profile.address1
+  json.address2 profile.address2
+  json.city profile.city
+  json.state profile.state
+  json.zip profile.zip
+  json.county profile.county
+  json.homephone profile.homephone
+  json.workphone profile.workphone
+  json.cellphone profile.cellphone
+  json.site profile.site
+  json.cohort profile.cohort
+  json.schoolname profile.schoolname
+  json.schoolcity profile.schoolcity
+  json.schooltype profile.schooltype
+  json.counselor profile.counselor
+  json.other_programs profile.other_programs
+  json.official_gpa profile.official_gpa
+  json.graduationdate profile.graduationdate
+  json.ec1_name profile.ec1_name
+  json.ec1_homephone profile.ec1_homephone
+  json.ec1_cellphone profile.ec1_cellphone
+  json.stemmajor profile.stemmajor
+  json.graduatedcollege profile.graduatedcollege
+  json.job_title profile.job_title
+  json.grad_school profile.grad_school
+  json.grad_school_major profile.grad_school_major
+  json.grad_school_year_of_graduation profile.grad_school_year_of_graduation
+  json.linkedin profile.linkedin
+  json.job_title profile.job_title
+  json.employer profile.employer
+  json.interested_in_networking_opportunities profile.interested_in_networking_opportunities
+  json.current_city profile.current_city
+  json.current_state profile.current_state
+  json.career_areas_of_interest profile.career_areas_of_interest
+  json.professional_development_areas_of_interest profile.professional_development_areas_of_interest
 end
