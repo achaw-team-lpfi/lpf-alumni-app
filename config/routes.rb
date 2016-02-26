@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'profiles#index'
+  get '/search', to: 'profiles#search'
   post '/search-alumni', to: 'profiles#search_alumni'
   post '/search-staff', to: 'profiles#search_staff'  
   resources :profiles
