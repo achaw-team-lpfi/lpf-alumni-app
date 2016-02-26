@@ -71,10 +71,9 @@
                 <th>City</th>
                 <th>State</th>
                 <th>School Name</th>
-                <th>Attending College</th>
                 <th>Stem Major</th>
                 <th>Graduated College</th>
-                <th>Employment</th>
+                <th>Employer</th>
                 <th>Job Title</th>
                 <th>Grad School</th>
                 <th>Grad School Major</th>
@@ -91,6 +90,22 @@
        <tr ng-repeat="profile in profiles | filter:searchTerm">
           <td>{{profile.firstname}}</td>
           <td>{{profile.lastname}}</td>
+          <td>{{profile.email}}</td>
+          <td>{{profile.site}}</td>
+          <td>{{profile.cohort}}</td>
+          <td>{{profile.city}}</td>
+          <td>{{profile.state}}</td>
+          <td>{{profile.schoolname}}</td>
+          <td>{{profile.stemmajor}}</td>
+          <td>{{profile.graduatedcollege}}</td>
+          <td>{{profile.employer}}</td>
+          <td>{{profile.grad_school}}</td>
+          <td>{{profile.grad_school_major}}</td>
+          <td>{{profile.current_city}}</td>
+          <td>{{profile.current_state}}</td>
+          <td>{{profile.linkedin}}</td>
+          <td>{{profile.career_areas_of_interest}}</td>
+          <td>{{profile.interested_in_networking_opportunities}}</td>
         </tr>
 
           </table>
