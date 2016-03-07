@@ -13,56 +13,29 @@
     </div>
   </form>   
     <div class="col-xs-12">
-
-      <!-- ##### BEGIN ADMIN SEARCH VIEW ##### -->  
-
-      <% if current_user.admin %>
-      <h2>Hello admin</h2>
-
-      <table class="table table-hover">
-        <thead>          
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Site</th>
-            <th>Cohort</th>
-            <th>City</th>
-            <th>State</th>
-            <th>School Name</th>
-            <th>Attending College</th>
-            <th>Stem Major</th>
-            <th>Graduated College</th>
-            <th>Employment</th>
-            <th>Job Title</th>
-            <th>Grad School</th>
-            <th>Grad School Major</th>
-            <th>Current City</th>
-            <th>Current State</th>
-            <th>Linkedin</th>
-            <th>Career Interest</th>
-            <th>Networking Interest</th>
-          </tr>
-        </thead>
-
-      <!-- filter by searchTerm // only display data that matches input searchTerm -->
-  
-       <tr ng-repeat="profile in profiles | filter:searchTerm">
-          <td>{{profile.firstname}}</td>
-          <td>{{profile.lastname}}</td>
-        </tr>
-
-
-        <% else %>
-
-        <!-- ##### BEGIN REGULAR SEARCH VIEW ##### -->
-
+    <% if current_user && current_user.admin == false %>
         <h2>Hello regular user</h2>
+    <% elsif current_user == false %>
+    <h1>Restricted Area please sign up!</h1>
+    <% elsif current_user.admin %>
+    <h1>Hello Admin</h1>
+    <% end %>    
         <div class="">        
           <table class="table table-hover">
             <thead>          
               <tr>
-                <th ng-hide="viewable">First Name</th>
+                <th ng-hide="viewable()">Id</th>
+                <th ng-hide="viewable()">Address 1</th>
+                <th ng-hide="viewable()">Address 2</th>
+                <th ng-hide="viewable()">Zip</th>
+                <th ng-hide="viewable()">County</th>
+                <th ng-hide="viewable()">phone(h)</th>
+                <th ng-hide="viewable()">phone(w)</th>
+                <th ng-hide="viewable()">phone(c)</th>
+                <th ng-hide="viewable()">gender</th>
+                <th ng-hide="viewable()">DOB</th>
+                <th ng-hide="viewable()">Ethnicity</th>
+                <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Site</th>
@@ -109,7 +82,7 @@
 
           </table>
         </div>
-        <% end %> <!-- end of if else for user -->
+  
       </div>  
     </div> <!-- end of row -->
 

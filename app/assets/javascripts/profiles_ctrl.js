@@ -18,7 +18,7 @@
     $scope.searchTerm = ''; // ng-model for search term
 
     //check for global var searchTerm from other pages if someone use search from nav bar it will pass params into angular filter
-    $scope.viewable = function viewable(){
+    function viewable(){
       if (current_user === "admin"){
         return false;
       }
@@ -26,6 +26,8 @@
         return true;
       }
     }
+
+    console.log(current_user);
     //current_user
 
 
