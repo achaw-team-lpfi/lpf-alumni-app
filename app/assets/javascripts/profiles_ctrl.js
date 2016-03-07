@@ -1,7 +1,7 @@
 (function() {
   "use strict";
 
-  angular.module("app").controller("profilesCtrl", function($scope,$http){
+  angular.module("app").controller("profilesCtrl", ["$scope", "$http", function($scope,$http){
     
     $scope.message = "Angular Controller Added!";
 
@@ -34,5 +34,5 @@
 
     } 
 
-  });
+  }]);
 })();
