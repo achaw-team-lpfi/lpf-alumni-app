@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-lg-9">
+    <h3 class = "page-header">Pending Users:</h3>
+  </div>
+</div>
+
+<div class = "row">
+  <div class = "col-lg-9 container">
+
+    <%= form_tag approve_users_path, method: :patch do %>
+    <table class= "table table-striped table-hover">
+      <thead>
+        <tr>
+          <td></td>
+          <td>Account Email</td>
+          <td>Created At</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user|%>
+        <tr>
+          <td><%= check_box_tag "user_ids[]", user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.created_at.strftime("%m/%d/%Y") %></td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+    <%= submit_tag "Approve Selected Users"%>
+    <% end %>
+
+  </div>
+</div>
