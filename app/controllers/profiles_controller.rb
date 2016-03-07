@@ -86,16 +86,14 @@ class ProfilesController < ApplicationController
   end
 
   def search_alumni
-      #    profile_headers = Profile.column_names
-      # @profile_header_list = []
-      
-      # profile_headers.each do |profile_header|
-      #   @profile_header_list << profile_header
-      # end    
-        
+  
+       puts "into search alumni" 
       if params[:search]
         @search_term = params[:search].capitalize 
-        search_header = params[:profile_header]
+        puts "should render search page "
+        render :search
+      end
+        # search_header = params[:profile_header]
         #searches = Profile.where("#{search_header} LIKE ? ", "%#{search_term}" )
         # @searches = Profile.where("firstname LIKE ? OR 
         #   lastname LIKE ? OR 
@@ -132,8 +130,6 @@ class ProfilesController < ApplicationController
 
           # "%#{search_term}%",
           # attendingcollege LIKE ? OR
-        render :search
-      end
   end
 
   def search_staff

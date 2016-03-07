@@ -19,9 +19,7 @@
 
     //check for global var searchTerm from other pages if someone use search from nav bar it will pass params into angular filter
 
-    if(searchTerm != 0){
-      $scope.searchTerm = searchTerm;
-    }
+    console.log(current_user);
 
     // search function to display only id matches search term (additional add-on if time permit // change from filter to search by dropdown)
     $scope.search = function(){

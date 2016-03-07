@@ -58,34 +58,7 @@
 
           </ul>
         </li>
-        <li>
-        <a>
 
-          <% if current_user %>
-
-          <%= form_tag '/search-alumni', method: :post %>
-          <%= label_tag :search, "Search for:" %>
-          <%= text_field_tag :search, params[:search] %>          
-
-          <%= submit_tag "search", :name => nil %>
-
-
-          <% end %>
-
-          <% if !current_user %>  
-          
-          <% elsif current_user.admin %>  
-                    <%= form_tag '/search-staff', method: :post %>
-          <%= label_tag :search, "Search for:" %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "search", :name => nil %>
-          <% end %>
-
-
-                 
-
-        </a>
-        </li>
       </ul>
       <!-- <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -109,6 +82,11 @@
 
     <script type="text/javascript">
     // created a global var to retrieve search term from nav search bar via params[:search] 
-    window.searchTerm = '<%= @search_term %>';
-    
+   <% if current_user.admin %>
+    window.current_user = 'admin';
+    <% elsif %>
+    window.current_user = 'user'; 
+    <% else %>
+    window.current_user = false;
+   <% end %>  
     </script>
