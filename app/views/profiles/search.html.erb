@@ -60,7 +60,18 @@
       <!-- filter by searchTerm // only display data that matches input searchTerm -->
   
        <tr ng-repeat="profile in profiles | filter:searchTerm">
-          <td ng-hide="viewable">{{profile.firstname}}</td>
+          <td ng-hide="viewable()">{{profile.id}}</td>
+          <td ng-hide="viewable()">{{profile.address1}}</td>
+          <td ng-hide="viewable()">{{profile.address2}}</td>
+          <td ng-hide="viewable()">{{profile.zip}}</td>
+          <td ng-hide="viewable()">{{profile.county}}</td>
+          <td ng-hide="viewable()">{{profile.homephone}}</td>
+          <td ng-hide="viewable()">{{profile.workphone}}</td>
+          <td ng-hide="viewable()">{{profile.cellphone}}</td>
+          <td ng-hide="viewable()">{{profile.gender}}</td>
+          <td ng-hide="viewable()">{{profile.birthdate}}</td>
+          <td ng-hide="viewable()">{{profile.ethnicity}}</td>
+          <td>{{profile.firstname}}</td>
           <td>{{profile.lastname}}</td>
           <td>{{profile.email}}</td>
           <td>{{profile.site}}</td>
