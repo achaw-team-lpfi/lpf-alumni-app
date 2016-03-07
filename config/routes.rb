@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/search-alumni', to: 'profiles#search_alumni'
   post '/search-staff', to: 'profiles#search_staff'  
   resources :profiles
+  get '/showprofile', to: 'profiles#showprofile'
 
 
 

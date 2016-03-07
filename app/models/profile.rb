@@ -68,6 +68,19 @@ class Profile < ActiveRecord::Base
     ['WY','WY']]
   end
 
+  def gender_list
+    return [
+    ['Male','Male'],['Female','Female']]
+  end
+
+  def boolean_select
+    return [['yes', true],['no', false]]
+  end
+
+  def boolean_select_rev
+    return [['no', false],['yes', true]]
+  end
+
 
   def user_id_check
     if user

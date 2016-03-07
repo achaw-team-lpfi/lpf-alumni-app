@@ -140,14 +140,18 @@ class ProfilesController < ApplicationController
       end
   end
 
+  def showprofile
+    
+  end
+
   private
 
   def profile_params
-    params.require(:profile).permit(:firstname, :middlename, :lastname, :site, :siteabbr, :lpfi_id, :cohort, :address1, :address2, :city, :state, :zip, :country, :homephone, :workphone, :cellphone, :email, :user_id)
+    params.require(:profile).permit(:address1, :address2, :email, :site, :lpfi_id, :cohort, :firstname, :middlename, :lastname, :city, :state, :zip, :homephone, :workphone, :cellphone, :gender, :birthdate, :ethnicity, :otherethnic, :schoolcity, :schooltype, :counselor, :other_programs, :official_gpa, :graduationdate, :ec1_name, :ec1_relationship, :ec1_homephone, :ec1_cellphone, :stemmajor, :graduatedcollege, :job_title, :grad_school, :grad_school_major, :linkedin, :current_city, :current_state, :schoolname, :county, :employer, :grad_school_year_of_graduation, :interested_in_networking_opportunities, :career_areas_of_interest, :professional_development_areas_of_interest, :user_id)
   end
 
   def alumni_params
-    params.require(:profile).permit(:firstname, :middlename, :lastname, :site, :siteabbr, :lpfi_id, :cohort, :address1, :address2, :city, :state, :zip, :country, :homephone, :workphone, :cellphone, :email,)
+    params.require(:profile).permit(:address1, :address2, :email, :site, :lpfi_id, :cohort, :firstname, :middlename, :lastname, :city, :state, :zip, :homephone, :workphone, :cellphone, :gender, :birthdate, :ethnicity, :otherethnic, :schoolcity, :schooltype, :counselor, :other_programs, :official_gpa, :graduationdate, :ec1_name, :ec1_relationship, :ec1_homephone, :ec1_cellphone, :stemmajor, :graduatedcollege, :job_title, :grad_school, :grad_school_major, :linkedin, :current_city, :current_state, :schoolname, :county, :employer, :grad_school_year_of_graduation, :interested_in_networking_opportunities, :career_areas_of_interest, :professional_development_areas_of_interest)
   end
 
 
