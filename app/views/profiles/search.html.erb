@@ -2,7 +2,6 @@
 <div>
   <div>
     <h1>Search page</h1>
-    {{allen}}
  <form>
     <div class="form-group col-xs-12">
       <div class="input-group col-xs-12 pull-left">
@@ -63,7 +62,7 @@
           <table class="table table-hover">
             <thead>          
               <tr>
-                <th>First Name</th>
+                <th ng-hide="viewable">First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Site</th>
@@ -88,7 +87,7 @@
       <!-- filter by searchTerm // only display data that matches input searchTerm -->
   
        <tr ng-repeat="profile in profiles | filter:searchTerm">
-          <td>{{profile.firstname}}</td>
+          <td ng-hide="viewable">{{profile.firstname}}</td>
           <td>{{profile.lastname}}</td>
           <td>{{profile.email}}</td>
           <td>{{profile.site}}</td>
