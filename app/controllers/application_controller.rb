@@ -3,6 +3,16 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  private
+
+  def authenticate_approved_user!
+    redirect_to "/" unless current_user && current_user.approved?
+  end
+
+  def authenticate_admin!
+    redirect_to "/" unless current_user && current_user.admin?
+  end
+
   @state_abbs = [
     ['AK','AK'],
     ['AL','AL'],

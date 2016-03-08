@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+before_action :authenticate_approved_user!, except: [:info]
 
   def index
     if current_user && current_user.admin
@@ -141,7 +142,11 @@ class ProfilesController < ApplicationController
   end
 
   def showprofile
-    
+
+  end
+
+  def info
+
   end
 
   private
