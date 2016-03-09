@@ -17,7 +17,8 @@
     
     $scope.searchTerm = ''; // ng-model for search term
 
-    //check for global var searchTerm from other pages if someone use search from nav bar it will pass params into angular filter
+    //check user status to determine what field are searchable
+
     $scope.viewable = function viewable(){
       if (current_user === "admin"){
         return false;
@@ -27,8 +28,11 @@
       }
     }
 
-   
-    //current_user
+    // link to show page for row
+
+    $scope.show = function(id){
+      window.location.href = "/profiles/" + id ;
+    }
 
 
     // search function to display only id matches search term (additional add-on if time permit // change from filter to search by dropdown)
