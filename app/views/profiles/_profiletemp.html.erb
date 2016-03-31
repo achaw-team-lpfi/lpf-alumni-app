@@ -1,0 +1,76 @@
+<div class="well profile-well">
+
+<div>
+<div><%= image_tag("profile-placeholder.png", :alt => "profile pic", :class => "profile-pic") %></div>
+
+<div class = "profile-person">
+  <h1><%= @profile.name_format %></h1>
+  <p>Birthdate: <%= @profile.birthdate%></p>
+  <p>Gender: <%= @profile.gender%></p>
+  <p>Ethnicity: <%= @profile.ethnicity%></p>
+  <p>Other Ethnicity:<%= @profile.otherethnic%></p>
+</div>
+</div>
+
+<div class="well profile-well">
+  <h3>LPFI Details:</h3>
+  <p>Site: <%= @profile.site%></p>
+  <p>LPFI ID: <%= @profile.lpfi_id%></p>
+  <p>Cohort: <%= @profile.cohort%></p>
+</div>
+
+<div class="well profile-well">
+  <h3>Contact Info:</h3>
+  <p>Email: <%= @profile.email%></p>
+  <p>Home Phone: <%= @profile.homephone%></p>
+  <p>Work Phone: <%= @profile.workphone%></p>
+  <p>Cell Phone: <%= @profile.cellphone%></p>
+  <p>Address 1: <%= @profile.address1%></p>
+  <p>Address 2: <%= @profile.address2%></p>
+  <p>City: <%= @profile.city%></p>
+  <p>State: <%= @profile.state%></p>
+  <p>Zip: <%= @profile.zip%></p>
+  <p>County: <%= @profile.county%></p>
+</div>
+
+<div class="well profile-well">
+  <h3>Education:</h3>
+  <p>School Name: <%= @profile.schoolname%></p>
+  <p>School City: <%= @profile.schoolcity%></p>
+  <p>School Type: <%= @profile.schooltype%></p>
+  <p>Counselor: <%= @profile.counselor%></p>
+  <p>Other Programs: <%= @profile.other_programs%></p>
+  <p>Official GPA: <%= @profile.official_gpa%></p>
+  <p>Graduation Date: <%= @profile.graduationdate%></p>
+</div>
+
+<div class="well profile-well">
+  <h3>EC1 Details:</h3>
+  <p>EC1 Name: <%= @profile.ec1_name%></p>
+  <p>EC1 Relationship: <%= @profile.ec1_relationship%></p>
+  <p>EC1 Homephone: <%= @profile.ec1_homephone%></p>
+  <p>EC1 Cellphone: <%= @profile.ec1_cellphone%></p>
+</div>
+
+<div class="well profile-well">
+  <h3>College:</h3>
+  <p>STEM Major?: <%= @profile.stemmajor%></p>
+  <p>Graduated College?: <%= @profile.graduatedcollege%></p>
+  <p>Grad School?: <%= @profile.grad_school%></p>
+  <p>Grad School Major: <%= @profile.grad_school_major%></p>
+  <p>Grad School Graduation Date: <%= @profile.grad_school_year_of_graduation%></p>
+</div>
+
+<div class="well profile-well">
+  <h3>Work Info:</h3>
+  <p>Current City: <%= @profile.current_city%></p>
+  <p>Current State: <%= @profile.current_state%></p>
+  <p>Employer: <%= @profile.employer%></p>
+  <p>Job Title: <%= @profile.job_title%></p>
+  <p>LinkedIn Profile: <%= @profile.linkedin%></p>
+  <p>Interested in Networking Opportunities?: <%= @profile.interested_in_networking_opportunities%></p>
+  <p>Career Areas of Interest: <%= @profile.career_areas_of_interest%></p>
+  <p>Professional Development Areas of Interest: <%= @profile.professional_development_areas_of_interest%></p>
+</div>
+
+</div>

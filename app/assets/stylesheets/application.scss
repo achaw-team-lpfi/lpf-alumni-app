@@ -27,9 +27,25 @@
   width:720px;
 }
 .container{
-  padding: 50px;
+
 }
 
 .logo{
   margin:10px;
+}
+
+.profile-well{
+  max-width:960px;
+  clear: left;
+}
+.profile-pic{
+  float: left;
+  left: 0px;
+  width: 20%;
+  padding-bottom: 15px;
+}
+.profile-person{
+  width:80%;
+  margin-left: 20%;
+  padding-left: 25px;
 }
