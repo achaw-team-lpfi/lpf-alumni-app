@@ -14,4 +14,6 @@
 //= require angular.min
 //= require bootstrap
 //= require jquery_ujs
+//= require jquery.easing.min
+//= require scrolling-nav
 //= require_tree .
