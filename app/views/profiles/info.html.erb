@@ -1,4 +1,10 @@
 <h3>You do not have the permissions to access this page</h3>
-<%= link_to "Sign Up", "/users/sign_up"%>
-<p>or</p>
-<%= link_to "Sign In", "/users/sign_in"%>
+  <h4 style="color:red; display:inline;">Reason:</h4>
+  <% if @not_approved %>
+    <p style="display:inline;">You have created an account, but an admin has not approved your account.</p>
+  <% elsif @not_user %>
+    <p style="display:inline;">You have not created an account or are not signed in.
+    <%= link_to "Sign Up", "/users/sign_up"%>
+    or
+    <%= link_to "Sign In", "/users/sign_in"%>.</p>
+  <% end %> 

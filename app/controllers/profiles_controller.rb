@@ -146,6 +146,13 @@ before_action :authenticate_approved_user!, except: [:info]
   end
 
   def info
+    if current_user && current_user.approved?
+      redirect_to "/search"
+    elsif current_user
+      @not_approved = true
+    else
+      @not_user = true
+    end
 
   end
 
